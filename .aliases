@@ -1,1 +1,8 @@
+source .aliases.local
 alias config='/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}'
+
+
+alias start_es='docker run -d --rm --name es -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 \
+			-e "discovery.type=single-node" \
+			-v ${HOME}/.esdata:/usr/share/elasticsearch/data \
+			docker.elastic.co/elasticsearch/elasticsearch:6.2.2'
