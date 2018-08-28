@@ -1,18 +1,20 @@
-cask_args appdir: /Applications
+cask_args appdir: '/Applications'
 
 # Web
-cask firefox-developer-edition
+cask 'firefox-developer-edition'
+cask 'chromium'
 
 # Development
-cask visual-studio-code
-brew git-crypt
-brew emacs
-brew yarn
-brew zsh
+cask 'visual-studio-code'
+brew 'git-crypt'
+brew 'emacs'
+brew 'yarn'
+brew 'zsh'
+brew 'n'
 
 # Utils
-brew jq
-brew watch
+brew 'jq'
+brew 'watch'
 
 #Fonts
-cask font-meslo-for-powerline
+cask 'font-meslo-for-powerline'
