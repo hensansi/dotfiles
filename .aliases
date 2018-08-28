@@ -1,8 +1,14 @@
-source .aliases.local
+source ~/.aliases.local
 alias config='/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}'
-
 
 alias start_es='docker run -d --rm --name es -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 \
 			-e "discovery.type=single-node" \
-			-v ${HOME}/.esdata:/usr/share/elasticsearch/data \
+			-v ${HOME}/${ESDATA:-.esdata}:/usr/share/elasticsearch/data \
 			docker.elastic.co/elasticsearch/elasticsearch:6.2.2'
+
+alias reset_es='rm -rf ~/.esdata && restart_es'
+alias restart_es='docker kill es && start_es'
+
+alias start_kibana='docker run -d --rm --name kibana -p 127.0.0.1:5601:5601 \
+			-e "ELASTICSEARCH_URL=http://docker.for.mac.localhost:9200" \
+                        docker.elastic.co/kibana/kibana-oss:6.2.2'
