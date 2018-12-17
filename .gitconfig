@@ -2,3 +2,5 @@
 	path = ~/.gitconfig.local
 [push]
 	default = current
+[user]
+	name = henrique.silva
